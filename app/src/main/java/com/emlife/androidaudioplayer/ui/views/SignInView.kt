@@ -47,7 +47,7 @@ fun Password() {
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun SignInViewPreview() {
     AndroidAudioPlayerTheme {
         SignInView()
     }
