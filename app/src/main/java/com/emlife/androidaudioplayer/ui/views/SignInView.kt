@@ -1,48 +1,101 @@
 package com.emlife.androidaudioplayer.ui.views
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.emlife.androidaudioplayer.ui.theme.AndroidAudioPlayerTheme
 
 @Composable
-fun SignInView(modifier: Modifier = Modifier) {
-    Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
-        Text(
-            text = "SignIn",
-            modifier = modifier
-        )
+fun SignInView() {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Top
+    ) {
+        Navbar()
+        Spacer(modifier = Modifier.height(80.dp))
         Username()
         Password()
+        ResetPasswordButton()
+        SubmitButton()
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Username() {
-    TextField(
-        value = "Username",
-        onValueChange = {},
-        modifier = Modifier.background(Color(0xFF1F1F1F))
+fun Navbar() {
+    Box(
+        Modifier
+            .padding(24.dp)
+            .background(Color(0xFF1F1F1F))
+            .border(width = 1.dp, color = Color.Black)
+            .fillMaxWidth()
+            .height(40.dp)
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun InputField() {
+    Box(
+        Modifier
+            .background(Color(0xFF1F1F1F))
+            .border(width = 1.dp, color = Color.Black)
+            .fillMaxWidth()
+            .height(80.dp)
+    )
+}
+
+@Composable
+fun Username() {
+    InputField()
+}
+
 @Composable
 fun Password() {
-    TextField(
-        value = "Username",
-        onValueChange = {},
-        modifier = Modifier.background(Color(0xFF1F1F1F))
+    InputField()
+}
+
+@Composable
+fun ResetPasswordButton() {
+    Box(
+        Modifier
+            .background(Color(0xFF1F1F1F))
+            .border(width = 1.dp, color = Color.Black)
+            .fillMaxWidth()
+            .height(80.dp)
     )
+}
+
+@Composable
+fun SubmitButton() {
+    Box(
+        Modifier
+            .background(Color(0xFF75FA9E))
+            .border(width = 1.dp, color = Color.Black)
+            .fillMaxWidth()
+            .height(80.dp)
+    ) {
+        Text(
+            text = "Sign In",
+            color = Color.Black,
+            fontWeight = FontWeight.Medium,
+            fontSize = 20.sp,
+            modifier = Modifier.align(Alignment.Center)
+        )
+    }
 }
 
 @Preview(showBackground = true)
