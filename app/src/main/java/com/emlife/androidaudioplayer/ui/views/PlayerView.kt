@@ -22,12 +22,12 @@ import com.emlife.androidaudioplayer.ui.components.TrackName
 import com.emlife.androidaudioplayer.ui.theme.AndroidAudioPlayerTheme
 
 @Composable
-fun PlayerView() {
+fun PlayerView(onBack: () -> Unit) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
-        Navbar("Player")
+        Navbar("Player", onBack)
         Spacer(modifier = Modifier.height(24.dp))
         Cover()
         TrackName(name = "Song 2023")
@@ -96,6 +96,6 @@ fun PlayerControls() {
 @Composable
 fun PlayerViewPreview() {
     AndroidAudioPlayerTheme {
-        PlayerView()
+        PlayerView({})
     }
 }

@@ -4,12 +4,12 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 
 @Composable
-fun TrackList() {
+fun TrackList(onTrack: () -> Unit) {
     Column {
-        Track()
-        Track()
-        Track()
-        Track()
-        Track()
+        Track(onTrack)
+        Track(onTrack)
+        Track(onTrack)
+        Track(onTrack)
+        Track(onTrack)
     }
 }

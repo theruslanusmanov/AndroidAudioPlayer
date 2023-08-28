@@ -26,12 +26,12 @@ import com.emlife.androidaudioplayer.ui.components.TrackList
 import com.emlife.androidaudioplayer.ui.theme.AndroidAudioPlayerTheme
 
 @Composable
-fun DiscoverView() {
+fun DiscoverView(onTrack: () -> Unit, onBack: () -> Unit) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
-        Navbar(title = "Discover")
+        Navbar(title = "Discover", onBack)
         Spacer(modifier = Modifier.height(24.dp))
         SearchInput()
         Column(modifier = Modifier.padding(24.dp)) {
@@ -41,7 +41,7 @@ fun DiscoverView() {
             Spacer(modifier = Modifier.height(24.dp))
             Title("Top 10 tracks")
             Spacer(modifier = Modifier.height(24.dp))
-            TrackList()
+            TrackList(onTrack)
         }
     }
 }
@@ -79,6 +79,6 @@ fun Genres() {
 @Composable
 fun DiscoverViewPreview() {
     AndroidAudioPlayerTheme {
-        DiscoverView()
+        DiscoverView({}, {})
     }
 }

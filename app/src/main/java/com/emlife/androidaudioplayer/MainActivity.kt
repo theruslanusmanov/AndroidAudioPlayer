@@ -30,10 +30,10 @@ class MainActivity : ComponentActivity() {
                 ) {
                     val navController = rememberNavController()
                     NavHost(navController = navController, startDestination = "signIn") {
-                        composable("signIn") { SignInView() }
-                        composable("discover") { DiscoverView() }
-                        composable("playlist") { PlaylistView() }
-                        composable("player") { PlayerView() }
+                        composable("signIn") { SignInView(onSubmit = {navController.navigate("discover")}, onBack = {/** TODO */}) }
+                        composable("discover") { DiscoverView(onTrack = {navController.navigate("player")}, onBack = {navController.popBackStack()}) }
+                        composable("playlist") { PlaylistView(onTrack = {navController.navigate("player")}, onBack = {navController.popBackStack()}) }
+                        composable("player") { PlayerView(onBack = {navController.popBackStack()}) }
                     }
                 }
             }
@@ -53,6 +53,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     AndroidAudioPlayerTheme {
-        SignInView()
+        SignInView({}, {})
     }
 }

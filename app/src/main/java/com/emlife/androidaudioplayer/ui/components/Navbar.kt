@@ -2,6 +2,7 @@ package com.emlife.androidaudioplayer.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -23,7 +24,7 @@ import androidx.compose.ui.unit.sp
 import com.emlife.androidaudioplayer.ui.theme.AndroidAudioPlayerTheme
 
 @Composable
-fun Navbar(title: String = "Title") {
+fun Navbar(title: String = "Title", onBack: () -> Unit) {
     Box(
         Modifier
             .background(Color(0xFF1F1F1F))
@@ -36,7 +37,9 @@ fun Navbar(title: String = "Title") {
                 Modifier
                     .background(Color.Gray)
                     .width(40.dp)
-                    .fillMaxHeight())
+                    .fillMaxHeight()
+                    .clickable { onBack() }
+            )
             Text(
                 text = title,
                 color = Color.White,
@@ -53,6 +56,6 @@ fun Navbar(title: String = "Title") {
 @Composable
 fun SignInViewPreview() {
     AndroidAudioPlayerTheme {
-        Navbar()
+        Navbar("Title", {})
     }
 }

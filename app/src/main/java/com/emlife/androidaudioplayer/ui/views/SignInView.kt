@@ -2,6 +2,7 @@ package com.emlife.androidaudioplayer.ui.views
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -21,17 +22,17 @@ import com.emlife.androidaudioplayer.ui.components.Navbar
 import com.emlife.androidaudioplayer.ui.theme.AndroidAudioPlayerTheme
 
 @Composable
-fun SignInView() {
+fun SignInView(onSubmit: () -> Unit, onBack: () -> Unit) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
-        Navbar(title = "Sign In")
+        Navbar(title = "Sign In", onBack)
         Spacer(modifier = Modifier.height(80.dp))
         Username()
         Password()
         ResetPasswordButton()
-        SubmitButton()
+        SubmitButton(onSubmit)
     }
 }
 
@@ -68,13 +69,14 @@ fun ResetPasswordButton() {
 }
 
 @Composable
-fun SubmitButton() {
+fun SubmitButton(onSubmit: () -> Unit) {
     Box(
         Modifier
             .background(Color(0xFF75FA9E))
             .border(width = 1.dp, color = Color.Black)
             .fillMaxWidth()
             .height(80.dp)
+            .clickable { onSubmit() }
     ) {
         Text(
             text = "Sign In",
@@ -90,6 +92,6 @@ fun SubmitButton() {
 @Composable
 fun SignInViewPreview() {
     AndroidAudioPlayerTheme {
-        SignInView()
+        SignInView({}, {})
     }
 }
