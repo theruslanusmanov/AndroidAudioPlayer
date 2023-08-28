@@ -6,10 +6,12 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.emlife.androidaudioplayer.ui.theme.AndroidAudioPlayerTheme
 import com.emlife.androidaudioplayer.ui.views.DiscoverView
 import com.emlife.androidaudioplayer.ui.views.PlayerView
@@ -26,7 +28,13 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    PlaylistView()
+                    val navController = rememberNavController()
+                    NavHost(navController = navController, startDestination = "signIn") {
+                        composable("signIn") { SignInView() }
+                        composable("discover") { DiscoverView() }
+                        composable("playlist") { PlaylistView() }
+                        composable("player") { PlayerView() }
+                    }
                 }
             }
         }
