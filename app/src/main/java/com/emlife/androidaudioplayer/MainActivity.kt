@@ -13,6 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.emlife.androidaudioplayer.ui.theme.AndroidAudioPlayerTheme
 import com.emlife.androidaudioplayer.ui.views.DiscoverView
 import com.emlife.androidaudioplayer.ui.views.PlayerView
+import com.emlife.androidaudioplayer.ui.views.PlaylistView
 import com.emlife.androidaudioplayer.ui.views.SignInView
 
 class MainActivity : ComponentActivity() {
@@ -25,7 +26,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    PlayerView()
+                    PlaylistView()
                 }
             }
         }

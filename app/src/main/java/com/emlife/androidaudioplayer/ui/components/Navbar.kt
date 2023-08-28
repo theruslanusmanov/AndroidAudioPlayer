@@ -26,7 +26,6 @@ import com.emlife.androidaudioplayer.ui.theme.AndroidAudioPlayerTheme
 fun Navbar(title: String = "Title") {
     Box(
         Modifier
-            .padding(24.dp)
             .background(Color(0xFF1F1F1F))
             .border(width = 1.dp, color = Color.Black)
             .fillMaxWidth()

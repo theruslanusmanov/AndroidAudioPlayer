@@ -9,18 +9,16 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.emlife.androidaudioplayer.ui.components.AuthorName
+import com.emlife.androidaudioplayer.ui.components.Cover
 import com.emlife.androidaudioplayer.ui.components.Navbar
+import com.emlife.androidaudioplayer.ui.components.TrackName
 import com.emlife.androidaudioplayer.ui.theme.AndroidAudioPlayerTheme
 
 @Composable
@@ -30,47 +28,15 @@ fun PlayerView() {
         verticalArrangement = Arrangement.Top
     ) {
         Navbar("Player")
+        Spacer(modifier = Modifier.height(24.dp))
         Cover()
         TrackName(name = "Song 2023")
         AuthorName(name = "Charlotte")
         Spacer(modifier = Modifier.weight(1f))
         ProgressBar()
         Spacer(modifier = Modifier.weight(1f))
-        Controls()
+        PlayerControls()
     }
-}
-
-@Composable
-fun Cover() {
-    Box(
-        Modifier
-            .background(Color.Gray)
-            .border(width = 1.dp, color = Color.Black)
-            .width(250.dp)
-            .height(250.dp)
-    )
-}
-
-@Composable
-fun TrackName(name: String) {
-    Text(
-        text = name,
-        fontSize = 32.sp,
-        color = Color.White,
-        style = TextStyle(textAlign = TextAlign.Center),
-        modifier = Modifier.fillMaxWidth()
-    )
-}
-
-@Composable
-fun AuthorName(name: String) {
-    Text(
-        text = name,
-        fontSize = 20.sp,
-        color = Color.Gray,
-        style = TextStyle(textAlign = TextAlign.Center),
-        modifier = Modifier.fillMaxWidth()
-    )
 }
 
 @Composable
@@ -85,7 +51,7 @@ fun ProgressBar() {
 }
 
 @Composable
-fun Controls() {
+fun PlayerControls() {
     val height = 80.dp
     Row(modifier = Modifier.fillMaxWidth()) {
         Box(

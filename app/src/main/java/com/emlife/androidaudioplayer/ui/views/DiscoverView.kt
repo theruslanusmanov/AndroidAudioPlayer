@@ -21,6 +21,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.emlife.androidaudioplayer.ui.components.Navbar
+import com.emlife.androidaudioplayer.ui.components.SearchInput
+import com.emlife.androidaudioplayer.ui.components.TrackList
 import com.emlife.androidaudioplayer.ui.theme.AndroidAudioPlayerTheme
 
 @Composable
@@ -30,6 +32,7 @@ fun DiscoverView() {
         verticalArrangement = Arrangement.Top
     ) {
         Navbar(title = "Discover")
+        Spacer(modifier = Modifier.height(24.dp))
         SearchInput()
         Column(modifier = Modifier.padding(24.dp)) {
             Title("Genre shortcuts")
@@ -41,17 +44,6 @@ fun DiscoverView() {
             TrackList()
         }
     }
-}
-
-@Composable
-fun SearchInput() {
-    Box(
-        Modifier
-            .background(Color(0xFF1F1F1F))
-            .border(width = 1.dp, color = Color.Black)
-            .fillMaxWidth()
-            .height(64.dp)
-    )
 }
 
 @Composable
@@ -80,28 +72,6 @@ fun Genre() {
 fun Genres() {
     Row {
         Genre()
-    }
-}
-
-@Composable
-fun Track() {
-    Box(
-        Modifier
-            .background(Color(0xFF1F1F1F))
-            .border(width = 1.dp, color = Color.Black)
-            .fillMaxWidth()
-            .height(80.dp)
-    )
-}
-
-@Composable
-fun TrackList() {
-    Column {
-        Track()
-        Track()
-        Track()
-        Track()
-        Track()
     }
 }
 
