@@ -26,7 +26,7 @@ fun SignInView() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
-        Navbar()
+        Navbar(title = "Sign In")
         Spacer(modifier = Modifier.height(80.dp))
         Username()
         Password()
@@ -86,7 +86,7 @@ fun SubmitButton() {
     }
 }
 
-@Preview(showBackground = true)
+@Preview()
 @Composable
 fun SignInViewPreview() {
     AndroidAudioPlayerTheme {
