@@ -1,5 +1,6 @@
 package com.emlife.androidaudioplayer.ui.views
 
+import android.media.MediaPlayer
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -20,6 +21,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -64,6 +66,8 @@ fun PlayerControls() {
     val height = 80.dp
     Row(modifier = Modifier.fillMaxWidth()) {
         var isPlaying by remember { mutableStateOf(false) }
+        val context = LocalContext.current
+        val mediaPlayer by remember { mutableStateOf(MediaPlayer.create(context, R.raw.audio)) }
 
         Box(
             Modifier
@@ -87,6 +91,7 @@ fun PlayerControls() {
                 .weight(1f)
                 .clickable {
                     isPlaying = !isPlaying
+                    if (isPlaying) mediaPlayer.start() else mediaPlayer.pause()
                 }
         ) {
             Image(
