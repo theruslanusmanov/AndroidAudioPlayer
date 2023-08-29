@@ -5,17 +5,26 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.LineBreak
+import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -58,20 +67,29 @@ fun Title(value: String = "Title") {
 }
 
 @Composable
-fun Genre() {
+fun Genre(name: String = "Genre") {
     Box(
-        Modifier
+        contentAlignment = Alignment.Center,
+        modifier = Modifier
             .background(Color(0xFF8E56F2))
-            .border(width = 1.dp, color = Color.Black)
-            .fillMaxWidth()
-            .height(64.dp)
-    )
+            .padding(vertical = 14.dp, horizontal = 24.dp)
+            .wrapContentWidth()
+    ) {
+        Text(
+            text = name,
+            style = TextStyle(lineBreak = null, color = Color.White),
+            modifier = Modifier.wrapContentSize()
+        )
+    }
 }
 
 @Composable
 fun Genres() {
-    Row {
-        Genre()
+    val itemList = listOf("Genre 1", "Genre 2", "Genre 3", "Genre 4", "Genre 5")
+    LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+        items(itemList) {
+            Genre(it)
+        }
     }
 }
 
