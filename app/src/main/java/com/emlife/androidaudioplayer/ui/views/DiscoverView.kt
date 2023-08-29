@@ -46,7 +46,11 @@ fun DiscoverView(onTrack: () -> Unit, onBack: () -> Unit) {
         Column(modifier = Modifier.padding(24.dp)) {
             Title("Genre shortcuts")
             Spacer(modifier = Modifier.height(24.dp))
+        }
+        Box(modifier = Modifier.padding(start = 24.dp)) {
             Genres()
+        }
+        Column(modifier = Modifier.padding(24.dp)) {
             Spacer(modifier = Modifier.height(24.dp))
             Title("Top 10 tracks")
             Spacer(modifier = Modifier.height(24.dp))
