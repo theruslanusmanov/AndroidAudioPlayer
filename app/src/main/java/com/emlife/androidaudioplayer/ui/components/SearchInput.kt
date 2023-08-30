@@ -34,7 +34,6 @@ fun SearchInput() {
         modifier = Modifier.background(Color(0xFF1F1F1F))
             .border(width = 1.dp, color = Color.Black)
             .fillMaxWidth()
-            .height(64.dp)
     )
 }
 
