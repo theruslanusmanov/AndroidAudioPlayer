@@ -31,6 +31,7 @@ import com.emlife.androidaudioplayer.ui.components.Cover
 import com.emlife.androidaudioplayer.ui.components.Navbar
 import com.emlife.androidaudioplayer.ui.components.TrackName
 import com.emlife.androidaudioplayer.ui.theme.AndroidAudioPlayerTheme
+import com.linc.audiowaveform.AudioWaveform
 
 @Composable
 fun PlayerView(onBack: () -> Unit) {
@@ -50,6 +51,9 @@ fun PlayerView(onBack: () -> Unit) {
     }
 }
 
+/**
+ * @see compose-audiowaveform https://github.com/lincollincol/compose-audiowaveform
+ */
 @Composable
 fun ProgressBar() {
     Box(
@@ -58,7 +62,14 @@ fun ProgressBar() {
             .border(width = 1.dp, color = Color.Black)
             .fillMaxWidth()
             .height(48.dp)
-    )
+    ) {
+        var waveformProgress by remember { mutableStateOf(0F) }
+        AudioWaveform(
+            amplitudes = listOf(1, 3, 4, 5),
+            progress = waveformProgress,
+            onProgressChange = { waveformProgress = it }
+        )
+    }
 }
 
 @Composable
