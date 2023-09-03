@@ -86,14 +86,14 @@ fun PlayerControls() {
                 .border(width = 1.dp, color = Color.Black)
                 .height(height)
                 .weight(1f)
-        )
-        Box(
-            Modifier
-                .background(Color.Gray)
-                .border(width = 1.dp, color = Color.Black)
-                .height(height)
-                .weight(1f)
-        )
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.ic_previous),
+                contentDescription = "Play",
+                alignment = Alignment.Center,
+                modifier = Modifier.fillMaxSize(),
+            )
+        }
         Box(
             Modifier
                 .background(Color(0xFF75FA9E))
@@ -118,14 +118,14 @@ fun PlayerControls() {
                 .border(width = 1.dp, color = Color.Black)
                 .height(height)
                 .weight(1f)
-        )
-        Box(
-            Modifier
-                .background(Color.Gray)
-                .border(width = 1.dp, color = Color.Black)
-                .height(height)
-                .weight(1f)
-        )
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.ic_next),
+                contentDescription = "Play",
+                alignment = Alignment.Center,
+                modifier = Modifier.fillMaxSize(),
+            )
+        }
     }
 }
 
