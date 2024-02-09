@@ -29,12 +29,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val navController = rememberNavController()
-                    NavHost(navController = navController, startDestination = "signIn") {
-                        composable("signIn") {
-                            SignInView(
-                                onSubmit = { navController.navigate("discover") },
-                                onBack = { /** TODO */ })
-                        }
+                    NavHost(navController = navController, startDestination = "discover") {
                         composable("discover") {
                             DiscoverView(
                                 onTrack = { navController.navigate("player") },
